@@ -6,6 +6,7 @@ interface B_Props {
 }
 
 const B = ({ todos, addTodo }: B_Props) => {
+  console.warn('B');
   return (
     <div>
       {todos.map((todo, index) => {
@@ -16,4 +17,4 @@ const B = ({ todos, addTodo }: B_Props) => {
   );
 };
 
-export default B;
+export default React.memo(B);

@@ -9,10 +9,10 @@ const A = () => {
     setCount((c) => c + 1);
   };
 
-  const addTodos = () => {
+  const addTodos = React.useCallback(() => {
     setTodos((t) => [...t, `The new todo ${t.length + 1}`]);
-  };
-
+  }, [todos]);
+  console.warn('A');
   return (
     <div>
       <B todos={todos} addTodo={addTodos} />
