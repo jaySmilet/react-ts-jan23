@@ -34,8 +34,8 @@ const A1 = () => {
 export default A1;
 
 const expensiveCalculation = (v: number) => {
-  for (let i = 1; i <= 1000000000; i++) {
-    v++;
-  }
+  // for (let i = 1; i <= 1000000000; i++) {
+  //   v++;
+  // }
   return v;
 };
