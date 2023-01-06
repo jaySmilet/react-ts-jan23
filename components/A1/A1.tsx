@@ -3,7 +3,7 @@ import * as React from 'react';
 const A1 = () => {
   const [count, setCount] = React.useState<number>(0);
   const [todos, setTodos] = React.useState<any[]>([]);
-  const calculation = expensiveCalculation(count);
+  const calculation = React.useMemo(() => expensiveCalculation(count), [count]);
 
   const addTodo = () => {
     setTodos((t) => [...t, `todo ${t.length + 1}`]);
