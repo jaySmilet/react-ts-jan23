@@ -5,11 +5,12 @@ import './AddEmployee.css';
 
 interface AddEmployeeProps {
   backClick: () => void;
+  addClick: (data: Employee) => void;
 }
 
-const AddEmployee = ({ backClick }: AddEmployeeProps) => {
+const AddEmployee = ({ backClick, addClick }: AddEmployeeProps) => {
   const [employee, setEmployee] = React.useState<Employee>({
-    id: new Date().toDateString(),
+    id: new Date().getTime().toString(),
     name: '',
     email: '',
     position: '',
@@ -21,10 +22,15 @@ const AddEmployee = ({ backClick }: AddEmployeeProps) => {
       return { ...emp, [e.target.name]: e.target.value };
     });
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addClick(employee);
+    backClick();
+  };
   return (
     <div className="addEmployee">
       <h3>ADD EMPLOYEE</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
           <input
@@ -36,11 +42,16 @@ const AddEmployee = ({ backClick }: AddEmployeeProps) => {
         </div>
         <div className="form-group">
           <label>Email</label>
-          <input type="email" name="email" />
+          <input
+            type="email"
+            value={employee.email}
+            onChange={handleChange}
+            name="email"
+          />
         </div>
         <div className="form-group">
           <label>Position</label>
-          <select name="position">
+          <select name="position" onChange={handleChange}>
             {EmployeePosition.map((ep, i) => {
               return (
                 <option key={i} value={ep}>
@@ -51,7 +62,7 @@ const AddEmployee = ({ backClick }: AddEmployeeProps) => {
           </select>
         </div>
         <div className="actionBtn">
-          <button>ADD</button>
+          <button type="submit">ADD</button>
           <button onClick={backClick}>BACK</button>
         </div>
       </form>

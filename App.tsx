@@ -8,7 +8,12 @@ import './style.css';
 
 export default function App() {
   const [employeeList, setEmployeeList] = React.useState<Employee[]>([
-    { id: 1, name: 'Ajay', email: 'ajay@gmail.com', position: 'CTO' },
+    {
+      id: new Date().getTime().toString(),
+      name: 'Ajay',
+      email: 'ajay@gmail.com',
+      position: 'CTO',
+    },
   ]);
 
   const [view, setView] = React.useState<ViewOption>(ViewOption.DEFAULT);
@@ -28,7 +33,10 @@ export default function App() {
 
       {view == 'DEFAULT' && <EmployeeList eList={employeeList} />}
       {view == 'ADD' && (
-        <AddEmployee backClick={() => setView(ViewOption.DEFAULT)} />
+        <AddEmployee
+          backClick={() => setView(ViewOption.DEFAULT)}
+          addClick={(data) => setEmployeeList((el) => [...el, data])}
+        />
       )}
     </div>
   );
