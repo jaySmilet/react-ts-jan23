@@ -1,0 +1,39 @@
+.addEmployee {
+  text-align: center;
+}
+h3 {
+  margin: 1rem;
+}
+.addEmployee form {
+  display: flex;
+  flex-direction: column;
+}
+.addEmployee form .form-group {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 0.5rem auto;
+  width: 50%;
+}
+.addEmployee form .form-group label {
+  flex: 3;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+input,
+select {
+  height: 1.7rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.actionBtn {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem auto;
+  width: 50%;
+}
+.actionBtn button {
+  padding: 0.5rem;
+  border-radius: 0%;
+  border: 0;
+}

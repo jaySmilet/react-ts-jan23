@@ -1,0 +1,45 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.listTop {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem auto;
+}
+.addButton {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  border-radius: 0;
+  outline: none;
+  border: 1px solid #969696;
+  padding: 0.3rem 0.5rem;
+}
+.addButton img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+button {
+  margin: 0 1.5px;
+  cursor: pointer;
+}
+button img {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
