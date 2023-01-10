@@ -13,7 +13,7 @@ const AddEmployee = ({ backClick, addClick }: AddEmployeeProps) => {
     id: new Date().getTime().toString(),
     name: '',
     email: '',
-    position: '',
+    position: EmployeePosition[0],
   });
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
