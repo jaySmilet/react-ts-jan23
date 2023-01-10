@@ -14,7 +14,13 @@ const AddEmployee = ({ backClick }: AddEmployeeProps) => {
     email: '',
     position: '',
   });
-  const handleChange = (e) => {};
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setEmployee((emp) => {
+      return { ...emp, [e.target.name]: e.target.value };
+    });
+  };
   return (
     <div className="addEmployee">
       <h3>ADD EMPLOYEE</h3>
