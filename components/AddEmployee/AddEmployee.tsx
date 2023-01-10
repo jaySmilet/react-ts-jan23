@@ -27,15 +27,20 @@ const AddEmployee = ({ backClick }: AddEmployeeProps) => {
       <form>
         <div className="form-group">
           <label>Name</label>
-          <input type="text" value={employee.name} onChange={handleChange} />
+          <input
+            type="text"
+            value={employee.name}
+            onChange={handleChange}
+            name="name"
+          />
         </div>
         <div className="form-group">
           <label>Email</label>
-          <input type="email" />
+          <input type="email" name="email" />
         </div>
         <div className="form-group">
           <label>Position</label>
-          <select>
+          <select name="position">
             {EmployeePosition.map((ep, i) => {
               return (
                 <option key={i} value={ep}>
