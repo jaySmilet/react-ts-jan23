@@ -5,9 +5,10 @@ import { Employee } from '../../models/employee';
 interface EmployeeListProps {
   eList: Employee[];
   onDelete: (id: string) => void;
+  onView:(data:Employee)=>void
 }
 
-const EmployeeList = ({ eList, onDelete }: EmployeeListProps) => {
+const EmployeeList = ({ eList, onDelete,onView }: EmployeeListProps) => {
   return (
     <React.Fragment>
       <div className="listTop">
@@ -32,7 +33,7 @@ const EmployeeList = ({ eList, onDelete }: EmployeeListProps) => {
                 <td>{e.email}</td>
                 <td>{e.position}</td>
                 <td>
-                  <button>
+                  <button onClick={()=>onView(e)}>
                     <img
                       src="https://freeiconshop.com/wp-content/uploads/edd/eye-outline.png"
                       alt=""

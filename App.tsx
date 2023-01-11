@@ -2,6 +2,7 @@ import * as React from 'react';
 import AddEmployee from './components/AddEmployee/AddEmployee';
 import EmployeeList from './components/EmployeeList/EmployeeList';
 import Header from './components/Header/Header';
+import ViewEmployee from './components/ViewEmployee/ViewEmployee';
 import { Employee } from './models/employee';
 import { ViewOption } from './models/ViewOption.enum';
 import { EmpList } from './static/data';
@@ -14,6 +15,14 @@ export default function App() {
 
   const deleteEmployee = (id: string) => {
     setEmployeeList((emp: Employee[]) => emp.filter((e) => id != e.id));
+  };
+
+  let selectedEmployeeView: Employee;
+
+  const viewEmployee = (emp: Employee) => {
+    setView(ViewOption.VIEW);
+    selectedEmployeeView = emp;
+    console.log(selectedEmployeeView);
   };
 
   return (
@@ -30,7 +39,11 @@ export default function App() {
       )}
 
       {view == 'DEFAULT' && (
-        <EmployeeList eList={employeeList} onDelete={deleteEmployee} />
+        <EmployeeList
+          eList={employeeList}
+          onDelete={deleteEmployee}
+          onView={viewEmployee}
+        />
       )}
       {view == 'ADD' && (
         <AddEmployee
@@ -38,6 +51,7 @@ export default function App() {
           addClick={(data) => setEmployeeList((el) => [...el, data])}
         />
       )}
+      {view == 'VIEW' && selectedEmployeeView && (<ViewEmployee data={selectedEmployeeView} />)}
     </div>
   );
 }
