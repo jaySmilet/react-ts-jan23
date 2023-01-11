@@ -29,11 +29,16 @@ export default function App() {
     setSelectedEmpView(emp);
   };
 
-  const onSaveClick = (data:Employee)=>{
-    setEmployeeList((emp:Employee[])=>{
-      
-    })
-  }
+  const onSaveClick = (data: Employee) => {
+    setEmployeeList((emp: Employee[]) => {
+      return emp.map((e) => {
+        if (e.id == data.id) {
+          return data;
+        }
+        return e;
+      });
+    });
+  };
 
   return (
     <div>
