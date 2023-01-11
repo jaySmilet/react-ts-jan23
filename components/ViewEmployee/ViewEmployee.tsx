@@ -3,15 +3,20 @@ import { Employee } from '../../models/Employee';
 import './ViewEmployee.css';
 
 interface ViewEmployeeProps {
-  isOpen?: boolean;
+  onClose: () => void;
   data: Employee;
 }
 
-const ViewEmployee = ({ isOpen = false, data }: ViewEmployeeProps) => {
-  console.log('data', data);
+const ViewEmployee = ({ onClose, data }: ViewEmployeeProps) => {
   return (
     <div className="view">
       <div className="view-content">
+        <button className="closeBtn" onClick={onClose}>
+          <img
+            src="https://cdn.faruzo.com/wp-content/uploads/greek-cross-2.jpg"
+            alt="close_btn"
+          />
+        </button>
         <table>
           <thead>
             <tr>

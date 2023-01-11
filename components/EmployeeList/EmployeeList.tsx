@@ -5,10 +5,11 @@ import { Employee } from '../../models/employee';
 interface EmployeeListProps {
   eList: Employee[];
   onDelete: (id: string) => void;
-  onView:(data:Employee)=>void
+  onView:(data:Employee)=>void;
+  onEdit:(data:Employee)=>void;
 }
 
-const EmployeeList = ({ eList, onDelete,onView }: EmployeeListProps) => {
+const EmployeeList = ({ eList, onDelete,onView,onEdit }: EmployeeListProps) => {
   return (
     <React.Fragment>
       <div className="listTop">
@@ -39,7 +40,7 @@ const EmployeeList = ({ eList, onDelete,onView }: EmployeeListProps) => {
                       alt=""
                     />
                   </button>
-                  <button>
+                  <button onClick={()=>onEdit(e)}>
                     <img
                       src="https://w7.pngwing.com/pngs/1018/119/png-transparent-computer-icons-editing-pencil-miscellaneous-angle-pencil.png"
                       alt=""

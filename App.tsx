@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AddEmployee from './components/AddEmployee/AddEmployee';
+import EditEmployee from './components/EditEmployee/EditEmployee';
 import EmployeeList from './components/EmployeeList/EmployeeList';
 import Header from './components/Header/Header';
 import ViewEmployee from './components/ViewEmployee/ViewEmployee';
@@ -17,13 +18,22 @@ export default function App() {
     setEmployeeList((emp: Employee[]) => emp.filter((e) => id != e.id));
   };
 
-  let selectedEmployeeView: Employee;
+  const [selectedEmpView, setSelectedEmpView] = React.useState<Employee>();
 
   const viewEmployee = (emp: Employee) => {
     setView(ViewOption.VIEW);
-    selectedEmployeeView = emp;
-    // console.log(selectedEmployeeView);
+    setSelectedEmpView(emp);
   };
+  const editEmployee = (emp: Employee) => {
+    setView(ViewOption.EDIT);
+    setSelectedEmpView(emp);
+  };
+
+  const onSaveClick = (data:Employee)=>{
+    setEmployeeList((emp:Employee[])=>{
+      
+    })
+  }
 
   return (
     <div>
@@ -43,6 +53,7 @@ export default function App() {
           eList={employeeList}
           onDelete={deleteEmployee}
           onView={viewEmployee}
+          onEdit={editEmployee}
         />
       )}
       {view == 'ADD' && (
@@ -51,8 +62,18 @@ export default function App() {
           addClick={(data) => setEmployeeList((el) => [...el, data])}
         />
       )}
-      {view == 'VIEW' && selectedEmployeeView && (
-        <ViewEmployee data={selectedEmployeeView} />
+      {view == 'VIEW' && selectedEmpView && (
+        <ViewEmployee
+          data={selectedEmpView}
+          onClose={() => setView(ViewOption.DEFAULT)}
+        />
+      )}
+      {view == 'EDIT' && (
+        <EditEmployee
+          backClick={() => setView(ViewOption.DEFAULT)}
+          data={selectedEmpView}
+          saveClick={onSaveClick}
+        />
       )}
     </div>
   );
