@@ -31,7 +31,7 @@ export default function App() {
 
   const onSaveClick = (data: Employee) => {
     setEmployeeList((emp: Employee[]) => {
-      return emp.map((e) => {
+      return emp.map((e: Employee) => {
         if (e.id == data.id) {
           return data;
         }
