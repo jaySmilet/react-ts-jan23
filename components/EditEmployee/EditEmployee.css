@@ -1,21 +1,21 @@
-.addEmployee {
+.edit {
   text-align: center;
 }
 h3 {
   margin: 1rem;
 }
-.addEmployee form {
+.edit form {
   display: flex;
   flex-direction: column;
 }
-.addEmployee form .form-group {
+.edit form .form-group {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   margin: 0.5rem auto;
   width: 50%;
 }
-.addEmployee form .form-group label {
+.edit form .form-group label {
   flex: 3;
   align-self: flex-start;
   font-size: 1.2rem;
@@ -26,14 +26,21 @@ select {
   font-size: 1.3rem;
   text-align: center;
 }
-.actionBtn {
+.edit .actionBtn {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: 0.5rem auto;
-  width: 50%;
+  width: 30%;
 }
-.actionBtn button {
-  padding: 0.5rem;
-  border-radius: 0%;
-  border: 0;
+.edit .actionBtn button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
+  color: #fff;
+  border: none;
+}
+.edit .actionBtn button:nth-child(1) {
+  background-color: rgb(87, 0, 128);
+}
+.edit .actionBtn button:nth-child(2) {
+  background-color: rgb(29, 104, 216);
 }

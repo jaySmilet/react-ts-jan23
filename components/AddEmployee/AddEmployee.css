@@ -28,12 +28,19 @@ select {
 }
 .actionBtn {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: 0.5rem auto;
-  width: 50%;
+  width: 30%;
 }
 .actionBtn button {
-  padding: 0.5rem;
-  border-radius: 0%;
-  border: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
+  color: #fff;
+  border: none;
+}
+.actionBtn button:nth-child(1) {
+  background-color: green;
+}
+.actionBtn button:nth-child(2) {
+  background-color: rgb(29, 104, 216);
 }
