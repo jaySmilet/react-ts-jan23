@@ -4,19 +4,17 @@ import EmployeeList from './components/EmployeeList/EmployeeList';
 import Header from './components/Header/Header';
 import { Employee } from './models/employee';
 import { ViewOption } from './models/ViewOption.enum';
+import { EmpList } from './static/data';
 import './style.css';
 
 export default function App() {
-  const [employeeList, setEmployeeList] = React.useState<Employee[]>([
-    {
-      id: new Date().getTime().toString(),
-      name: 'Ajay',
-      email: 'ajay@gmail.com',
-      position: 'CTO',
-    },
-  ]);
+  const [employeeList, setEmployeeList] = React.useState<Employee[]>(EmpList);
 
   const [view, setView] = React.useState<ViewOption>(ViewOption.DEFAULT);
+
+  const deleteEmployee = (id: string) => {
+    setEmployeeList((emp: Employee[]) => emp.filter((e) => id != e.id));
+  };
 
   return (
     <div>
@@ -31,7 +29,9 @@ export default function App() {
         </button>
       )}
 
-      {view == 'DEFAULT' && <EmployeeList eList={employeeList} />}
+      {view == 'DEFAULT' && (
+        <EmployeeList eList={employeeList} onDelete={deleteEmployee} />
+      )}
       {view == 'ADD' && (
         <AddEmployee
           backClick={() => setView(ViewOption.DEFAULT)}

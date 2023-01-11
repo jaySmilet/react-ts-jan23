@@ -4,9 +4,10 @@ import { Employee } from '../../models/employee';
 
 interface EmployeeListProps {
   eList: Employee[];
+  onDelete: (id: string) => void;
 }
 
-const EmployeeList = ({ eList }: EmployeeListProps) => {
+const EmployeeList = ({ eList, onDelete }: EmployeeListProps) => {
   return (
     <React.Fragment>
       <div className="listTop">
@@ -43,7 +44,7 @@ const EmployeeList = ({ eList }: EmployeeListProps) => {
                       alt=""
                     />
                   </button>
-                  <button>
+                  <button onClick={() => onDelete(e.id)}>
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
                       alt=""
