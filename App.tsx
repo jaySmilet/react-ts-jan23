@@ -22,7 +22,7 @@ export default function App() {
   const viewEmployee = (emp: Employee) => {
     setView(ViewOption.VIEW);
     selectedEmployeeView = emp;
-    console.log(selectedEmployeeView);
+    // console.log(selectedEmployeeView);
   };
 
   return (
@@ -51,7 +51,9 @@ export default function App() {
           addClick={(data) => setEmployeeList((el) => [...el, data])}
         />
       )}
-      {view == 'VIEW' && selectedEmployeeView && (<ViewEmployee data={selectedEmployeeView} />)}
+      {view == 'VIEW' && selectedEmployeeView && (
+        <ViewEmployee data={selectedEmployeeView} />
+      )}
     </div>
   );
 }
