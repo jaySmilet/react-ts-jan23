@@ -28,6 +28,7 @@ tr:nth-child(even) {
   outline: none;
   border: 1px solid #969696;
   padding: 0.3rem 0.5rem;
+  margin: 1rem 0 1rem auto;
 }
 .addButton img {
   width: 25px;
