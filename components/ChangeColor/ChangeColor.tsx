@@ -11,7 +11,7 @@ const ChangeColor = () => {
   const [color, setColor] = React.useState<color>(colors[0]);
   const dispatch = useDispatch();
 
-  const handleChagne = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChagne = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setColor(colors.find((c) => c.id === +e.target.value));
   };
 
