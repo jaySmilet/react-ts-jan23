@@ -1,0 +1,9 @@
+.profile {
+  color: #333;
+  background-color: #fff;
+  padding: 1rem;
+}
+.profile.dark {
+  color: #fff;
+  background-color: #333;
+}
