@@ -4,7 +4,7 @@ import { RootState } from '../..';
 import {
   addEmployee,
   deleteEmployee,
-  updateUser,
+  updateEmployee,
 } from '../../feature/employee';
 import { employee } from '../../static/data';
 import './Employee.css';
@@ -12,6 +12,8 @@ import './Employee.css';
 const Employee = () => {
   const [username, setUsername] = React.useState<string>('');
   const [name, setName] = React.useState<string>('');
+  const [newUsername, setNewUsername] = React.useState<string>('');
+  const [newName, setNewName] = React.useState<string>('');
   const employees: employee[] = useSelector(
     (state: RootState) => state.employee.value
   );
@@ -54,12 +56,24 @@ const Employee = () => {
                 type="text"
                 placeholder="@username"
                 className="formControl"
+                onChange={(e) => setNewUsername(e.target.value)}
               />
-              <input type="text" placeholder="Name" className="formControl" />
+              <input
+                type="text"
+                placeholder="Name"
+                className="formControl"
+                onChange={(e) => setNewName(e.target.value)}
+              />
               <button
                 className="update_button"
                 onClick={() =>
-                  dispatch(updateUser({ id: emp.id, name, username }))
+                  dispatch(
+                    updateEmployee({
+                      id: emp.id,
+                      name: newName,
+                      username: newUsername,
+                    })
+                  )
                 }
               >
                 Update

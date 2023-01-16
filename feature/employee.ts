@@ -11,11 +11,11 @@ export const employeeSlice = createSlice({
       state.value.push(action.payload);
     },
     deleteEmployee: (state, action) => {
-      state.value = state.value.filter((user) => user.id !== action.payload.id);
+      state.value = state.value.filter((emp) => emp.id !== action.payload.id);
     },
-    updateUser: (state, action) => {
-     state.value= state.value.map((user) => {
-        if (user.id === action.payload.id) {
+    updateEmployee: (state, action) => {
+      state.value = state.value.map((emp) => {
+        if (emp.id === action.payload.id) {
           return action.payload;
         }
       });
@@ -23,6 +23,7 @@ export const employeeSlice = createSlice({
   },
 });
 
-export const { addEmployee, deleteEmployee,updateUser } = employeeSlice.actions;
+export const { addEmployee, deleteEmployee, updateEmployee } =
+  employeeSlice.actions;
 
 export default employeeSlice.reducer;
