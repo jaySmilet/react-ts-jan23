@@ -9,10 +9,13 @@ export const employeeSlice = createSlice({
   reducers:{
     addEmployee:(state,action)=>{
       state.value.push(action.payload)
+    },
+    deleteEmployee:(state,action)=>{
+      state.value = state.value.filter(user=>user.id!==action.payload.id)
     }
   }
 });
 
-export const {addEmployee} = employeeSlice.actions;
+export const {addEmployee,deleteEmployee} = employeeSlice.actions;
 
 export default employeeSlice.reducer;
