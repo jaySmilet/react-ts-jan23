@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../..';
-import { addEmployee, deleteEmployee } from '../../feature/employee';
+import {
+  addEmployee,
+  deleteEmployee,
+  updateUser,
+} from '../../feature/employee';
 import { employee } from '../../static/data';
 import './Employee.css';
 
@@ -52,7 +56,14 @@ const Employee = () => {
                 className="formControl"
               />
               <input type="text" placeholder="Name" className="formControl" />
-              <button className="update_button">Update</button>
+              <button
+                className="update_button"
+                onClick={() =>
+                  dispatch(updateUser({ id: emp.id, name, username }))
+                }
+              >
+                Update
+              </button>
             </div>
             <div className="display">
               <p>empId: {emp.id}</p>
