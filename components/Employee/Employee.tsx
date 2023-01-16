@@ -34,7 +34,7 @@ const Employee = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <button
-          className="add"
+          className="add_button"
           onClick={() =>
             dispatch(
               addEmployee({

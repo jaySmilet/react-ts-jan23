@@ -1,3 +1,21 @@
+.add {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100px;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.add .formControl {
+  height: 20%;
+  font-size: 1rem;
+}
+.add .add_button {
+  width: 30%;
+  align-self: center;
+  height: 20%;
+  font-size: 0.9rem;
+}
 .employee {
   display: flex;
   flex-direction: column;
@@ -23,7 +41,7 @@
   width: 30%;
   align-self: center;
   height: 20%;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .employee .display {
   flex: 4;
