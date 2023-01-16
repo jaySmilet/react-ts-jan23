@@ -18,6 +18,7 @@ export const employeeSlice = createSlice({
         if (emp.id === action.payload.id) {
           return action.payload;
         }
+        return emp;
       });
     },
   },

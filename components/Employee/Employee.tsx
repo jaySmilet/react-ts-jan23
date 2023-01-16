@@ -14,10 +14,11 @@ const Employee = () => {
   const [name, setName] = React.useState<string>('');
   const [newUsername, setNewUsername] = React.useState<string>('');
   const [newName, setNewName] = React.useState<string>('');
-  const employees: employee[] = useSelector(
+  let employees: employee[] = useSelector(
     (state: RootState) => state.employee.value
   );
   const dispatch = useDispatch();
+  const handleDelete = (id:number)=>()=>dispatch(deleteEmployee({ id})
   return (
     <React.Fragment>
       <div className="add">
@@ -38,7 +39,10 @@ const Employee = () => {
           onClick={() =>
             dispatch(
               addEmployee({
-                id: employees[employees.length - 1].id + 1,
+                id:
+                  employees.length > 0
+                    ? employees[employees.length - 1].id + 1
+                    : 1,
                 username,
                 name,
               })
@@ -83,7 +87,7 @@ const Employee = () => {
               <p>empId: {emp.id}</p>
               <p>Username: {emp.username}</p>
               <p>Name: {emp.name}</p>
-              <button onClick={() => dispatch(deleteEmployee({ id: emp.id }))}>
+              <button onClick={()=>handleDelete(emp.id)}>
                 Delete
               </button>
             </div>
