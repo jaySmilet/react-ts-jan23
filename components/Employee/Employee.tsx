@@ -1,15 +1,23 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from '../..';
+import { employee } from '../../static/data';
 import './Employee.css';
 
 const Employee = () => {
-  const employees = useSelector((state) => state.value);
+  const employees: employee[] = useSelector(
+    (state: RootState) => state.employee.value
+  );
   return (
     <div className="employee">
-      <div className="display">
-        <p>Username: {}</p>
-        <p>Name</p>
-      </div>
+      {employees.map((emp: employee) => {
+        return (
+          <div className="display">
+            <p>Username: {emp.username}</p>
+            <p>Name: {emp.name}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };

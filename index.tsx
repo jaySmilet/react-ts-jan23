@@ -22,3 +22,4 @@ root.render(
     </Provider>
   </StrictMode>
 );
+export type RootState = ReturnType<typeof store.getState>;
