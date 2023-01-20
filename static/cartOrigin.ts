@@ -21,7 +21,7 @@ export const cartItems: Cart[] = [
     amount: 1,
   },
   {
-    id: 'asdf125',
+    id: 'asdf126',
     title: 'four',
     price: 40,
     img: '',

@@ -15,7 +15,15 @@ export const cartSlice = createSlice({
     increment: (state, action) => {
       state.cartItems = state.cartItems.map((cart) => {
         if (cart.id === action.payload.id) {
-          return action.payload;
+          cart.amount++;
+        }
+        return cart;
+      });
+    },
+    decrement: (state, action) => {
+      state.cartItems = state.cartItems.map((cart) => {
+        if (cart.id === action.payload.id) {
+          cart.amount--;
         }
         return cart;
       });
@@ -23,6 +31,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { increment } = cartSlice.actions;
+export const { increment,decrement } = cartSlice.actions;
 
 export default cartSlice.reducer;

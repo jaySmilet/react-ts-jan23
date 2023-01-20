@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { increment } from '../../feature/cart/cart';
+import { increment, decrement } from '../../feature/cart/cart';
 import { Cart } from '../../static/cartOrigin';
 import './CartItem.css';
 
@@ -10,7 +10,7 @@ const CartItem = ({ id, title, price, img, amount }: Cart) => {
     <div className="cart-item">
       {title}-{price}-{amount}
       <button onClick={() => dispatch(increment({ id }))}>++</button>
-      <button>--</button>
+      <button onClick={() => dispatch(decrement({ id }))}>--</button>
     </div>
   );
 };
