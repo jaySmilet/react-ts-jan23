@@ -1,3 +1,5 @@
-h1, p {
-  font-family: Lato;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }

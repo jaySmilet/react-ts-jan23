@@ -1,6 +1,11 @@
 import * as React from 'react';
+import Navbar from './components/Navbar/Navbar';
 import './style.css';
 
 export default function App() {
-  return <div>o</div>;
+  return (
+    <div className="App">
+      <Navbar />
+    </div>
+  );
 }
