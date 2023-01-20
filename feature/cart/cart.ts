@@ -3,7 +3,7 @@ import { cartItems } from '../../static/cartOrigin';
 
 const initialStateValue = {
   cartItems: cartItems,
-  amount: 0,
+  amount: 2,
   total: 0,
   isLoading: true,
 };
@@ -11,7 +11,18 @@ const initialStateValue = {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: initialStateValue,
-  reducers: {},
+  reducers: {
+    increment: (state, action) => {
+      state.cartItems = state.cartItems.map((cart) => {
+        if (cart.id === action.payload.id) {
+          return action.payload;
+        }
+        return cart;
+      });
+    },
+  },
 });
+
+export const { increment } = cartSlice.actions;
 
 export default cartSlice.reducer;
