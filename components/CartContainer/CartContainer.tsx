@@ -11,6 +11,9 @@ const CartContainer = () => {
     (state: RootState) => state.cart
   );
   const dispatch = useDispatch();
+  const handleClearCart = () => {
+    confirm('Are you sure want to clear cart!') ? dispatch(clearCart()) : null;
+  };
   if (amount < 1) {
     return (
       <div className="cart-conatiner">
@@ -24,7 +27,7 @@ const CartContainer = () => {
           <CartItem key={cart.id} {...cart} />
         ))}
         <div>total-: {total}</div>
-        <button onClick={() => dispatch(clearCart())}>
+        <button onClick={handleClearCart}>
           <DeleteIcon />
         </button>
       </div>
