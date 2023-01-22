@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { increment, decrement } from '../../feature/cart/cart';
+import { increment, decrement, removeItem } from '../../feature/cart/cart';
 import { Cart } from '../../static/cartOrigin';
 import './CartItem.css';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const CartItem = ({ id, title, price, img, amount }: Cart) => {
@@ -15,19 +15,24 @@ const CartItem = ({ id, title, price, img, amount }: Cart) => {
         <img src={img} alt="title" />
       </div>
       <div>
-        <span>{title}</span> <span>${price}</span>
+        <span>{title}</span> <br />
+        <span>${price}</span>
       </div>
       <div className="plus-minus">
-        <button onClick={() => dispatch(increment({ id }))}>
-          <KeyboardArrowUpIcon />
-        </button>
+        {amount < 5 && (
+          <button onClick={() => dispatch(increment({ id }))}>
+            <AddIcon />
+          </button>
+        )}
         <div>{amount}</div>
-        <button onClick={() => dispatch(decrement({ id }))}>
-          <KeyboardArrowDownIcon />
-        </button>
+        {amount > 1 && (
+          <button onClick={() => dispatch(decrement({ id }))}>
+            <RemoveIcon />
+          </button>
+        )}
       </div>
       <div className="delete-btn">
-        <button>
+        <button onClick={() => dispatch(removeItem({ id }))}>
           <DeleteOutlineIcon />
         </button>
       </div>
