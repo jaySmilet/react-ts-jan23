@@ -1,3 +1,4 @@
+import { AnyAction, AsyncThunkAction } from '@reduxjs/toolkit';
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CartContainer from './components/CartContainer/CartContainer';
@@ -16,7 +17,7 @@ export default function App() {
   }, [cartItems]);
 
   React.useEffect(() => {
-    dispatch(getCartItems());
+    dispatch(getCartItems() as any);
   }, []);
 
   if (isLoading) {
