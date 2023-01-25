@@ -60,6 +60,7 @@ export const cartSlice = createSlice({
       state.isLoading = true;
     }),
       builder.addCase(getCartItems.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.cartItems = action.payload;
       }),
